@@ -1,0 +1,136 @@
+create database School1;
+use School1;
+create table Student1(
+StudentID int primary key,
+FirstName varchar(20),
+LastName varchar(20),
+DOB date,
+Class varchar(20),
+Marks int,
+City varchar(20)
+); 
+create table Teacher1(
+TeacherID int primary key,
+FirstName varchar(20),
+LastName varchar(20),
+Sub varchar(20),
+HireDate date,
+Salary int
+); 
+
+create table course1(
+CourseID int primary key,
+CourseName varchar(20),
+Credits int
+);
+
+create table admission1(
+EnrollID int primary key,
+StudentID int,
+	foreign key (studentID) references Student1 (StudentID),
+CourseID int,
+	foreign key (CourseID) references Course1 (CourseID),
+Grade int
+);
+
+insert into course1 values ('123','Biology',4);
+insert into course1 values ('124','Physics',4);
+insert into Student1 values ('125', 'Arjun', 'Gill', '2006-10-9', '7', '180', 'Bengaluru');
+insert into Student1 values ('126', 'Rohit', 'singh', '2006-01-04', '8', '190', 'Bengaluru');
+insert into teacher1 values ('12700', 'Vineet', 'Lal', 'Biology', '2022-05-06', '500000');
+insert into teacher1 values ('12800', 'Athirath', 'Suresh', 'Physics', '2020-03-01', '500000');
+insert into admission1 values ('1299', '125', '123', '15');
+insert into admission1 values ('1300', '126', '124', '12');
+
+
+select*from Student1;
+	/*125	Arjun	Gill	2006-10-09	7	180	Bengaluru
+	126	Rohit	singh	2006-01-04	8	190	Bengaluru*/
+select*from teacher1;
+	/*12700	Vineet	Lal	Biology	2022-05-06	500000
+	12800	Athirath	Suresh	Physics	2020-03-01	500000*/
+select*from course1;
+	/*123	Biology	4
+	124	Physics	4*/
+select*from admission1;
+	/*1299	125	123	15
+	1300	126	124	12*/
+    
+select right(CourseName, 3) as LastThreeChars from course1;
+/*	LastThreeChars
+	ogy
+	ics	*/
+    
+
+select concat(FirstName, ' ', LastName) as FullName from teacher1;      
+/*	FullName
+	Vineet Lal
+	Athirath Suresh	*/
+
+select FirstName, length(FirstName) as NameLength from student1;
+/*	FirstName	NameLength
+	Arjun	5
+	Rohit	5	*/
+
+alter table course1 modify column CourseName varchar(15);
+update course1 set CourseName = replace(CourseName, 'Maths', 'Mathematics');
+
+select abs(max(marks) - min(marks)) as AbsoluteDifference from Student1;
+/*	AbsoluteDifference
+	10*/
+    
+select round(salary, -3) as RoundedSalary from teacher1;
+/*		RoundedSalary
+	500000
+	500000*/
+
+select CourseName, sqrt(credits) as CreditSquareRoot from course1;
+/*		CourseName	CreditSquareRoot
+	Biology	2
+	Physics	2 */
+    
+select marks, ceil(marks) as CeilingMarks, floor(marks) as FloorMarks from Student1;
+/*		marks	CeilingMarks	FloorMarks
+	180	180	180
+	190	190	190*/
+    
+select sum(marks) % 5 as ModulusOfTotalMarks from Student1;
+/*	ModulusOfTotalMarks
+	0*/
+    
+select now();
+/*		now()
+	2025-09-10 23:28:11*/
+
+
+select year(HireDate) as HireYear, month(HireDate) as HireMonth from teacher1; 
+/*		HireYear	HireMonth
+	2022	5
+	2020	3*/
+    
+select FirstName, LastName from Student1 where month(DOB) = 1;
+/*		FirstName	LastName
+	Rohit	singh*/
+
+select datediff(curdate(), HireDate) as DaysSinceHire from teacher1;
+/*		DaysSinceHire
+	1223
+	2019	*/
+
+select count(StudentID) as TotalStudents from Student1;
+/*		TotalStudents
+	2]*/
+    
+select avg(Salary) as AverageSalary from teacher1;
+/*		AverageSalary
+	500000.0000*/
+    
+select max(marks) as HighestMarks, min(marks) as LowestMarks from Student1;
+/*		HighestMarks	LowestMarks
+	190	180*/
+    
+show tables;
+select*from Student1;
+select*from course1;
+select*from teacher1;
+select*from admission1;
