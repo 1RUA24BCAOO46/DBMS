@@ -1,0 +1,32 @@
+create database StudentMarks;
+use StudentMarks;
+create table student(
+USN varchar(10),
+StudentName varchar(20),
+Age int,
+Combination varchar(10),
+M1 int,
+M2 int,
+M3 int
+);
+desc student;
+
+insert into Student values ('USN001', 'Ajay', '16', 'PCMB', '86', '80', '88');
+insert into Student values ('USN002', 'Akshata', '17', 'PCMB', '97', '60', '51');
+insert into Student values ('USN003', 'abhay', '17', 'PCMC', '75', '89', '63');
+insert into Student values ('USN004', 'Gaurav', '16', 'PCME', '91', '90', '74');
+insert into Student values ('USN005', 'Heman', '16', 'PCMC', '89', '50', '67');
+insert into Student values ('USN006', 'vineeet', '16', 'PCMB', '64', '69', '67');
+insert into Student values ('USN007', 'akash', '16', 'PCMB', '43', '91', '65');
+insert into Student values ('USN008', 'arun', '16', 'PCMC', '92', '60', '89');
+insert into Student values ('USN009', 'akhil', '17', 'PCMC', '70', '90', '43');
+insert into Student values ('USN010', 'Varun', '16', 'PCME', '100', '80', '83');
+select * from Student;
+alter table Student
+add (Total int, Average int, Result varchar(4));
+select * from Student;
+update Student set Total=M1+M2+M3;
+update Student set Average=(Total/3);
+update Student set Result='Pass' where M1>=60 AND M2>=60 AND M3>=60;
+update Student set Result='Fail' where M1<60 OR M2<60 OR M3<60;
+select * from Student;
