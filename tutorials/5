@@ -21,17 +21,17 @@ create table employee (
 );
 desc employee;
 
-insert into department values(1, 'Human Resources', 'New York');
-insert into department values(2, 'Finance', 'Chicago');
-insert into department values(3, 'Engineering', 'San Francisco');
-insert into department values(4, 'Marketing', 'Los Angeles');
+insert into department values(1, 'Human Resources', 'bengaluru');
+insert into department values(2, 'Finance', 'delhi');
+insert into department values(3, 'Engineering', 'Nepal');
+insert into department values(4, 'Marketing', 'pune');
 select*from department;
 
-insert into employee values(101, 'Alice ', 30, 60000.00, 'HR Manager', '123 Main St, New York', '2019-04-15', 1);
-insert into employee values(102, 'Bob ', 28, 55000.00, 'Financial Analyst', '456 Lakeview Dr, Chicago', '2020-07-22', 2);
-insert into employee values(103, 'Charlie ', 35, 80000.00, 'Software Engineer', '789 Tech Ave, San Francisco', '2018-11-10', 3);
-insert into employee values(104, 'Dia', 26, 50000.00, 'Marketing Executive', '321 Sunset Blvd, Los Angeles', '2021-03-05', 4);
-insert into employee values(105, 'Eren', 40, 95000.00, 'Senior Developer', '654 Silicon Rd, San Francisco', '2017-06-30', 3);
+insert into employee values(101, 'akhil ', 30, 60000.00, 'HR Manager', '112 indiranagar, bengaluru', '2019-04-15', 1);
+insert into employee values(102, 'varun ', 28, 55000.00, 'Financial Analyst', '456 gandhinagar, delhi', '2020-07-22', 2);
+insert into employee values(103, 'prahladh', 35,rohit 80000.00, 'Software Engineer', '2212 dhanadi, Nepal', '2018-11-10', 3);
+insert into employee values(104, 'Diya', 26, 50000.00, 'Marketing Executive', '514 Pune, raj sheh colony', '2021-03-05', 4);
+insert into employee values(105, 'charan', 40, 95000.00, 'Senior Developer', '622 halasuru, bangalore ', '2017-06-30', 3);
 select*from employee;
 
 SET SQL_SAFE_UPDATES = 0;
